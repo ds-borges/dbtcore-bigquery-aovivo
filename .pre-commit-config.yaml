@@ -16,10 +16,12 @@ repos:
     rev: 3.1.0
     hooks:
       - id: sqlfluff-lint
+        args: [--processes, "4"]
         additional_dependencies:
           - dbt-bigquery==1.8.2
           - sqlfluff-templater-dbt==3.1.0
       - id: sqlfluff-fix
+        args: [--processes, "4"]
         additional_dependencies:
           - dbt-bigquery==1.8.2
           - sqlfluff-templater-dbt==3.1.0
