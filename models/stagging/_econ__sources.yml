@@ -25,3 +25,5 @@ sources:
         description: Um registro por SKU para itens vendidos nas lojas
       - name: raw_supplies
         description: Um registro por suprimento por SKU de itens vendidos nas lojas
+      - name: raw_items
+        description: Detalhes de itens de pedidos individualizados
