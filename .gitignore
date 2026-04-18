@@ -182,3 +182,4 @@ logs/
 # Credentials & environment
 .envrc
 *.json
+dbt_internal_packages/

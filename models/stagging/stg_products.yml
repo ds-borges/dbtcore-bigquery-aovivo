@@ -1,0 +1,15 @@
+version: 2
+
+unit_tests:
+  - name: test_stg_products_positive_price
+    description: "Garante que o preço do produto seja sempre retornado como um valor positivo ou tratado."
+    model: stg_products
+    given:
+      - input: source('ecom', 'raw_products')
+        rows:
+          - { sku: 'P1', name: 'adele-ade', type: 'beverage', price: 400 }
+          - { sku: 'P2', name: 'doctor stew', type: 'jaffle', price: -1100 }
+    expect:
+      rows:
+        - { product_id: 'P1', product_name: 'adele-ade', product_price: 4.00 }
+        - { product_id: 'P2', product_name: 'doctor stew', product_price: 11.00 }

@@ -19,8 +19,8 @@ renamed as (
         description as product_description,
 
         ---------- numerics
-        -- Substituição manual do cents_to_dollars
-        round(cast((price / 100) as numeric), 2) as product_price,
+        -- Substituição manual do cents_to_dollars e garantindo valor absoluto
+        abs(round(cast((price / 100) as numeric), 2)) as product_price,
 
         ---------- booleans
         coalesce(type = 'jaffle', false) as is_food_item,

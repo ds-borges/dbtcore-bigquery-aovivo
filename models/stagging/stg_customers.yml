@@ -1,0 +1,15 @@
+version: 2
+
+unit_tests:
+  - name: test_stg_customers_renaming
+    description: "Valida se as colunas ID e NAME são renomeadas corretamente para CUSTOMER_ID e CUSTOMER_NAME."
+    model: stg_customers
+    given:
+      - input: source('ecom', 'raw_customers')
+        rows:
+          - { id: '1', name: 'Jackson Storm' }
+          - { id: '2', name: 'Lightning McQueen' }
+    expect:
+      rows:
+        - { customer_id: '1', customer_name: 'Jackson Storm' }
+        - { customer_id: '2', customer_name: 'Lightning McQueen' }
